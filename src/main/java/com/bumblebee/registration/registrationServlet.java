@@ -42,7 +42,7 @@ public class registrationServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3308/BumbleBee","root","1234");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3308/BumbleBee?useSSL=false","root","1234");
 			PreparedStatement pst = con.prepareStatement("insert into users(userName, userPwd, userEmail, UserMobile) values(?,?,?,?)");
 			pst.setString(1, uname);
 			pst.setString(2, upwd);
