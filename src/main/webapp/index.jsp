@@ -27,6 +27,7 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet">
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -116,11 +117,10 @@
 			<!-- Contact Section Form-->
 			<div class="row justify-content-center">
 				<div class="col-lg-8 col-xl-7">
-->
-					<form id="loanForm" >
+					<form id="loanForm" method="post" action="loanForm" >
 						<!-- Name input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" id="name" type="text"
+							<input class="form-control" id="name" type="text" name="fname"
 								placeholder="Enter your name..." data-sb-validations="required" />
 							<label for="name">Full name</label>
 							<div class="invalid-feedback" data-sb-feedback="name:required">A
@@ -128,62 +128,50 @@
 						</div>
 						<!-- Email address input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" id="email" type="email"
-								placeholder="name@example.com"
-								data-sb-validations="required,email" /> <label for="email">Email
-								address</label>
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
+							<input class="form-control" id="id" type="text" name="nid"
+								placeholder="199823978V"
+							/> <label for="email">ID Number</label>
+							<div class="invalid-feedback" data-sb-feedback="id:required">An
+								ID is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="id:id">ID
 								is not valid.</div>
 						</div>
 						<!-- Phone number input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" id="phone" type="tel"
-								placeholder="(123) 456-7890" data-sb-validations="required" />
-							<label for="phone">Phone number</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">A
-								phone number is required.</div>
+							<input class="form-control" id="sdate" type="text" name="sdate"
+								placeholder="2023/01/25" data-sb-validations="required" />
+							<label for="sdate">Start date</label>
+							<div class="invalid-feedback" data-sb-feedback="sdate:required">A
+								Start date is required.</div>
 						</div>
 						<!-- DOB input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" id="dob" type="text"
+							<input class="form-control" id="dob" type="text" name="dob"
 								placeholder="1997/12/12" data-sb-validations="required" />
 							<label for="phone">Date of Birth</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">Date of Birth is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="dob:required">Date of Birth is required.</div>
 						</div>
 						<!-- Loan Balance: input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" id="bal" type="number"
-								placeholder="1997/12/12" data-sb-validations="required" />
+							<input class="form-control" id="bal" type="number" name="bal"
+								placeholder="1997/12/12" data-sb-validations="required" step=".01"/>
 							<label for="phone">Loan Balance</label>
 							<div class="invalid-feedback" data-sb-feedback="phone:required">Loan Balance is required.</div>
 						</div>
 						<!-- Message input-->
 						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message" type="text"
+							<textarea class="form-control" id="message" type="text" name="msg"
 								placeholder="Enter your message here..." style="height: 10rem"
 								data-sb-validations="required"></textarea>
 							<label for="message">Message</label>
 							<div class="invalid-feedback" data-sb-feedback="message:required">A
 								message is required.</div>
 						</div>
-						<!-- Submit success message-->
-						<div class="d-none" id="submitSuccessMessage">
-							<div class="text-center mb-3">
-								<div class="fw-bolder">Form submission successful!</div>
-								To activate this form, sign up at <br /> <a
-									href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-							</div>
-						</div>
-						<!-- Submit error message-->
-						<div class="d-none" id="submitErrorMessage">
-							<div class="text-center text-danger mb-3">Error sending
-								message!</div>
-						</div>
 						<!-- Submit Button-->
-						<button class="btn btn-primary btn-xl disabled" id="submitButton"
-							type="submit">Send</button>
+						<div class="form-group form-button">
+							<input type="submit" name="loan" id="loan"
+									class="form-submit lbtn" value="Submit" />
+						</div>
 					</form>
 				</div>
 			</div>

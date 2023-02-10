@@ -3,3 +3,9 @@
 .clr{
 	background-color: #006274 !important;
 }
+
+.lbtn{
+	background-color: #006274 !important;
+	padding: 10px 20px;
+    color: white;
+}
