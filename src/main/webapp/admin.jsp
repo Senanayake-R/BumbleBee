@@ -159,12 +159,12 @@
 	  </div>
 	</section>
 	
-	<!-- Contact Section-->
+	<!-- loan Section-->
 	<section class="page-section" id="contact">
 		<div class="container">
 			<!-- Loan application Section Heading-->
 			<h2
-				class="page-section-heading text-center text-uppercase text-secondary mb-0">Apply for a Loan</h2>
+				class="page-section-heading text-center text-uppercase text-secondary mb-0">Requested Loans</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
@@ -173,80 +173,46 @@
 				</div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<!-- Contact Section Form-->
-			<div class="row justify-content-center">
-				<div class="col-lg-8 col-xl-7">
-->
-					<form id="loanForm" >
-						<!-- Name input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="name" type="text"
-								placeholder="Enter your name..." data-sb-validations="required" />
-							<label for="name">Full name</label>
-							<div class="invalid-feedback" data-sb-feedback="name:required">A
-								name is required.</div>
-						</div>
-						<!-- Email address input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="email" type="email"
-								placeholder="name@example.com"
-								data-sb-validations="required,email" /> <label for="email">Email
-								address</label>
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
-								is not valid.</div>
-						</div>
-						<!-- Phone number input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="phone" type="tel"
-								placeholder="(123) 456-7890" data-sb-validations="required" />
-							<label for="phone">Phone number</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">A
-								phone number is required.</div>
-						</div>
-						<!-- DOB input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="dob" type="text"
-								placeholder="1997/12/12" data-sb-validations="required" />
-							<label for="phone">Date of Birth</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">Date of Birth is required.</div>
-						</div>
-						<!-- Loan Balance: input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="bal" type="number"
-								placeholder="1997/12/12" data-sb-validations="required" />
-							<label for="phone">Loan Balance</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">Loan Balance is required.</div>
-						</div>
-						<!-- Message input-->
-						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message" type="text"
-								placeholder="Enter your message here..." style="height: 10rem"
-								data-sb-validations="required"></textarea>
-							<label for="message">Message</label>
-							<div class="invalid-feedback" data-sb-feedback="message:required">A
-								message is required.</div>
-						</div>
-						<!-- Submit success message-->
-						<div class="d-none" id="submitSuccessMessage">
-							<div class="text-center mb-3">
-								<div class="fw-bolder">Form submission successful!</div>
-								To activate this form, sign up at <br /> <a
-									href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-							</div>
-						</div>
-						<!-- Submit error message-->
-						<div class="d-none" id="submitErrorMessage">
-							<div class="text-center text-danger mb-3">Error sending
-								message!</div>
-						</div>
-						<!-- Submit Button-->
-						<button class="btn btn-primary btn-xl disabled" id="submitButton"
-							type="submit">Send</button>
-					</form>
-				</div>
-			</div>
+			
+			<!-- Add a Bootstrap table -->
+		  <table class="table table-bordered">
+		    <thead>
+		      <tr>
+		        <th>User Name</th>
+		        <th>ID Card Number</th>
+		        <th>Started Date</th>
+		        <th>DOB</th>
+		        <th>Loan Balance</th>
+		        <th>Message</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <%
+		        try {
+		            Class.forName("com.mysql.cj.jdbc.Driver");
+		            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/BumbleBee?useSSL=false", "root", "1234");
+		            Statement st = con.createStatement();
+		            ResultSet rs = st.executeQuery("SELECT full_name, id_number, start_date, date_of_birth, loan_balance, message FROM loans");
+		            
+		            while(rs.next()) {
+		      %>
+		      <tr>
+		        <td><%=rs.getString("full_name")%></td>
+		        <td><%=rs.getString("id_number")%></td>
+		        <td><%=rs.getString("start_date")%></td>
+		        <td><%=rs.getString("date_of_birth")%></td>
+		        <td><%=rs.getString("loan_balance")%></td>
+		        <td><%=rs.getString("message")%></td>
+		      </tr>
+		      <%
+		            }
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		      %>
+		    </tbody>
+		  </table>
+			
 		</div>
 	</section>
 

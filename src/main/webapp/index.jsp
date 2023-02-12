@@ -160,7 +160,7 @@
 						</div>
 						<!-- Message input-->
 						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message" type="text" name="msg"
+							<textarea class="form-control" id="message" name="msg"
 								placeholder="Enter your message here..." style="height: 10rem"
 								data-sb-validations="required"></textarea>
 							<label for="message">Message</label>
@@ -184,6 +184,7 @@
 			<small>cis6003 advanced-programming</small>
 		</div>
 	</div>
+	
 
 	<!-- Bootstrap core JS-->
 	<script
