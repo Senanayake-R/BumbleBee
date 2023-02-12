@@ -30,6 +30,8 @@
 <link href="css/styles.css" rel="stylesheet">
 </head>
 <body id="page-top">
+
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
 	<!-- Navigation-->
 	<nav
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
@@ -192,5 +194,23 @@
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+	<script type="text/javascript">
+		var status = document.getElementById("status").value;
+		if(status == "balErr"){
+			swal("Sorry", "Loan balance should be less than 15000", "error");
+		}
+		else if(status == "success"){
+			swal("Done", "Loan requested successfully submitted", "success");
+		}
+		else if(status == "failsave"){
+			swal("Sorry", "Loan request not submitted", "error");
+		}
+		
+	</script>
+	
 </body>
 </html>
